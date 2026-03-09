@@ -2,6 +2,8 @@ import requests
 import uuid
 import json
 
+done_root_symptoms = ["EAR", "EYE", "FACE", "HEAD", "HEARING", "MIND", "NOSE", "VERTIGO", "VISION", "MOUTH"]
+
 cookies = {
     'ApplicationGatewayAffinityCORS': 'e8c539943b13b17d3b896ea1e8e3261f',
     'ApplicationGatewayAffinity': 'e8c539943b13b17d3b896ea1e8e3261f',
@@ -79,7 +81,10 @@ def get_remedies(parent_symptom, current_symptom):
     response = requests.post('https://vc.vithoulkascompass.com/vcproxy/Proxy/Call', cookies=cookies, headers=headers, json=json_data)
     if response.status_code == 200:
         print("successfull got symptoms")
-        return response.json()["Data"]["SymptomRemedyResponse"]
+        result = response.json()["Data"]["SymptomRemedyResponse"]
+        if result["RemediesLocal"] == 0:
+            return None
+        return result
     else:
         print("REMEDIES: ", response.status_code, response.json())
         return None

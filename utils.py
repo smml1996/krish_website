@@ -2,7 +2,15 @@ import requests
 import uuid
 import json
 
-done_root_symptoms = ["EAR", "EYE", "FACE", "HEAD", "HEARING", "MIND", "NOSE", "VERTIGO", "VISION", "MOUTH"]
+done_root_symptoms = ["EAR", "EYE", "FACE", 
+        "HEAD", "HEARING", "MIND", 
+        "NOSE", "VERTIGO", "VISION", 
+        "MOUTH", "TEETH", "THROAT", "EXTERNAL THROAT",
+        "STOMACH", "ABDOMEN", "RECTUM", "STOOL", "BLADDER",
+        "KIDNEYS", "PROSTATE GLAND", "URETHRA", "URINE",
+        "GENITALIA-MALE", "GENITALIA-FEMALE", "LARYNX AND TRACHEA",
+        "RESPIRATION"
+        ]
 
 cookies = {
     'ApplicationGatewayAffinityCORS': 'e8c539943b13b17d3b896ea1e8e3261f',
